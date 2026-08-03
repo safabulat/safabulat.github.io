@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="darkreader-lock">
+<title>Safa Bulat — small software for Mac, and games</title>
+<meta name="description" content="I build tiny native macOS desk toys and instruments, and co-op games. Everything here is small, quiet, and made without a framework in sight.">
+<meta property="og:title" content="Safa Bulat — small software for Mac, and games">
+<meta property="og:description" content="Tiny native macOS desk toys and instruments, and co-op games.">
+<link rel="icon" href="img/deskestra.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="./">Safa&nbsp;Bulat</a>
+    <nav>
+      <a href="#desk">Desk toys</a>
+      <a href="#games">Games</a>
+      <a href="#how">How I build</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="wrap hero">
+  <h1>I make <em>small</em> software.</h1>
+  <p class="lede">
+    Native macOS desk toys and instruments that live in your menu bar and never get in your way, and
+    co-op games built on physics and other people. No frameworks, no accounts, no analytics, nothing
+    that phones home.
+  </p>
+  <p class="cta-note">Istanbul, Turkey · <a href="mailto:safabulatdev@icloud.com">safabulatdev@icloud.com</a></p>
+</div>
+
+<section id="desk">
+  <div class="wrap">
+    <p class="eyebrow">Desk toys &amp; instruments</p>
+    <h2>Things that sit on your desktop and wait</h2>
+    <p>
+      Each one is a native AppKit app of a couple of megabytes with no dock icon, no window in your app
+      switcher and no permissions to ask for. They stop drawing entirely when nothing is moving.
+    </p>
+
+    <ul class="cards">
+      <li>
+        <img class="icon" src="img/deskestra.png" alt="">
+        <div class="card-body">
+          <h3><a href="https://safabulat.github.io/deskestra-site/">Deskestra</a></h3>
+          <p class="tag"><span class="dot soon"></span>Coming to the Mac App Store</p>
+          <p>A piano, a drum kit, a bass, a guitar, a kalimba, a metronome and a tuner that live in your
+             menu bar. Play them on your computer keyboard while another app has focus. The app and the
+             piano are free.</p>
+        </div>
+      </li>
+      <li>
+        <img class="icon" src="img/deskick.png" alt="">
+        <div class="card-body">
+          <h3><a href="https://safabulat.github.io/deskick-site/">Deskick</a></h3>
+          <p class="tag"><span class="dot soon"></span>Coming to the Mac App Store</p>
+          <p>A football goal and a ball floating over your whole desktop. Pull the ball back, let go, try
+             to score. Clicks fall straight through everywhere except on the ball, so nothing you were
+             working in ever loses focus.</p>
+        </div>
+      </li>
+      <li>
+        <img class="icon" src="img/hoophoop.png" alt="">
+        <div class="card-body">
+          <h3>Hoop Hoop</h3>
+          <p class="tag"><span class="dot wip"></span>In development</p>
+          <p>The same idea with a basketball hoop: throw the ball across your desktop and try to sink it.
+             Built on the same quiet overlay as Deskick.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="games">
+  <div class="wrap">
+    <p class="eyebrow">Games</p>
+    <h2>Mostly things you cannot do alone</h2>
+    <p>
+      Built in Godot and Unity. The ones worth making are the ones where the other player is the
+      interesting part of the physics.
+    </p>
+
+    <ul class="cards plain">
+      <li>
+        <div class="card-body">
+          <h3>SEDYE!</h3>
+          <p class="tag"><span class="dot wip"></span>In development · Godot</p>
+          <p>Co-op physics comedy. Two players carry a stretcher — and whatever is on it — through places
+             a stretcher was never meant to go. Every corner is a negotiation.</p>
+        </div>
+      </li>
+      <li>
+        <div class="card-body">
+          <h3>HOLMGANG</h3>
+          <p class="tag"><span class="dot wip"></span>Prototype · Godot</p>
+          <p>A medieval melee battle royale with a class system and parrying that actually costs you
+             something. <em>Holmgang</em> is the old Norse duel fought to settle a matter for good.</p>
+        </div>
+      </li>
+      <li>
+        <div class="card-body">
+          <h3>Vine Out</h3>
+          <p class="tag"><span class="dot wip"></span>In development · Mobile</p>
+          <p>A colour-match puzzle. Grab the head of a tangled root and drag it out through a matching
+             exit without trapping the ones behind it.</p>
+        </div>
+      </li>
+      <li>
+        <div class="card-body">
+          <h3>HADAL</h3>
+          <p class="tag"><span class="dot hold"></span>On hold</p>
+          <p>Four-player deep-sea salvage horror. The pressure outside the hull is the antagonist, and the
+             lights are on a budget.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap feature">
+    <div class="feature-text">
+      <p class="eyebrow">How I build</p>
+      <h2>Small on purpose, all the way down</h2>
+      <p>
+        The desk toys ship as a couple of megabytes because there is nothing in them but the app. Every
+        sound is synthesised in code at launch rather than shipped as audio. The landing pages are plain
+        HTML and one stylesheet with no external requests at all, so they work off a disk.
+      </p>
+      <p>
+        None of it collects anything. No accounts, no analytics, no crash reporting, no network code.
+        That is not a privacy policy written after the fact — there is simply nothing in there to send.
+      </p>
+      <p>
+        Before this I worked on embedded systems and .NET, which is where the habit of counting bytes
+        came from and never quite left.
+      </p>
+    </div>
+    <div class="feature-text">
+      <p class="eyebrow">Built with</p>
+      <ul class="chips">
+        <li>Swift</li><li>AppKit</li><li>Core Animation</li><li>AVAudioEngine</li>
+        <li>Godot</li><li>GDScript</li><li>Unity</li><li>C#</li>
+        <li>TypeScript</li><li>Phaser</li><li>C / C++</li><li>Python</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Say something</h2>
+    <p>
+      Support questions, bug reports, an idea for something small — the same address reaches me for every
+      app and game here.
+    </p>
+    <ul class="links">
+      <li><a href="mailto:safabulatdev@icloud.com">safabulatdev@icloud.com</a><span>Email · support for every app</span></li>
+      <li><a href="https://github.com/safabulat">github.com/safabulat</a><span>Code</span></li>
+      <li><a href="https://www.linkedin.com/in/safabulat/">linkedin.com/in/safabulat</a><span>The long version</span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Safa Bulat — small software, made in Istanbul.</span>
+    <nav>
+      <a href="https://safabulat.github.io/deskestra-site/">Deskestra</a>
+      <a href="https://safabulat.github.io/deskick-site/">Deskick</a>
+      <a href="https://github.com/safabulat">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

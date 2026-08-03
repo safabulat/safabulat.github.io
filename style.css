@@ -1,0 +1,159 @@
+/* safabulat.github.io — the hub page that sits above every product site.
+   Deliberately almost monochrome: Deskestra is brass, Deskick is pitch green, and the app icons on this
+   page have to be the only colour on it or the umbrella starts competing with the things under it. One
+   muted blue carries links and nothing else. Dark first, light supported; both are real designs.
+   Same rules as the product sites — no framework, no build step, no external requests, so the whole
+   thing is one HTML file, this stylesheet and three icons. */
+
+:root {
+    --accent:     #6aa5f0;
+    --bg:         #0f0f10;
+    --bg-raise:   #17171a;
+    --bg-sink:    #0a0a0b;
+    --line:       #26262a;
+    --ink:        #f0efee;
+    --ink-soft:   #a09e9b;
+    --ink-faint:  #6b6967;
+    --wip:        #e6b857;
+    --hold:       #7e7c79;
+    --radius:     14px;
+    --page:       1080px;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --accent:     #1f6ac4;
+        --bg:         #f8f8f7;
+        --bg-raise:   #ffffff;
+        --bg-sink:    #eeeeec;
+        --line:       #e0e0dd;
+        --ink:        #131313;
+        --ink-soft:   #575653;
+        --ink-faint:  #8b8985;
+        --wip:        #9a7317;
+        --hold:       #8b8985;
+    }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { max-width: var(--page); margin: 0 auto; padding: 0 24px; }
+
+/* ── header ─────────────────────────────────────────────────────────────── */
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(160%) blur(12px);
+    z-index: 10;
+}
+header .wrap { display: flex; align-items: center; gap: 12px; }
+.wordmark { font-weight: 650; letter-spacing: -0.01em; color: var(--ink); font-size: 17px; }
+.wordmark:hover { text-decoration: none; }
+header nav { margin-left: auto; display: flex; gap: 22px; font-size: 14px; }
+header nav a { color: var(--ink-soft); }
+header nav a:hover { color: var(--ink); text-decoration: none; }
+
+/* ── hero ───────────────────────────────────────────────────────────────── */
+.hero { padding: 96px 0 84px; text-align: center; }
+.hero h1 {
+    margin: 0 auto 20px;
+    max-width: 14ch;
+    font-size: clamp(36px, 6.6vw, 64px);
+    line-height: 1.04;
+    letter-spacing: -0.038em;
+    font-weight: 700;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.lede { margin: 0 auto; max-width: 56ch; font-size: clamp(16px, 2.1vw, 19px); color: var(--ink-soft); }
+.cta-note { margin-top: 26px; font-size: 14px; color: var(--ink-faint); }
+
+/* ── sections ───────────────────────────────────────────────────────────── */
+section { padding: 76px 0; border-top: 1px solid var(--line); }
+.eyebrow {
+    margin: 0 0 12px; font-size: 11px; font-weight: 700;
+    letter-spacing: .16em; text-transform: uppercase; color: var(--accent);
+}
+h2 { margin: 0 0 14px; font-size: clamp(25px, 3.6vw, 34px); line-height: 1.15; letter-spacing: -0.028em; font-weight: 680; }
+h2 + p { margin: 0; max-width: 62ch; color: var(--ink-soft); font-size: 17px; }
+
+/* ── project cards ──────────────────────────────────────────────────────── */
+.cards { margin: 36px 0 0; padding: 0; list-style: none; display: grid; gap: 18px; }
+.cards > li {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 22px 24px;
+    background: var(--bg-raise);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+/* The icon is the only colour on the page, so it gets to be big enough to actually read. */
+.icon { width: 62px; height: 62px; border-radius: 14px; flex: none; }
+.card-body { min-width: 0; }
+.card-body h3 { margin: 0 0 4px; font-size: 18px; letter-spacing: -0.018em; }
+.card-body h3 a { color: var(--ink); }
+.card-body h3 a::after { content: " ↗"; color: var(--ink-faint); font-size: 13px; }
+.card-body > p { margin: 0; color: var(--ink-soft); font-size: 15px; max-width: 66ch; }
+.card-body .tag {
+    display: flex; align-items: center; gap: 7px;
+    margin: 0 0 9px; font-size: 12.5px; color: var(--ink-faint);
+}
+.dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+.dot.soon { background: var(--accent); }
+.dot.wip  { background: var(--wip); }
+.dot.hold { background: var(--hold); }
+
+/* Games have no icons yet; without one the 20px gutter reads as a mistake rather than a slot. */
+.cards.plain { grid-template-columns: repeat(2, 1fr); }
+.cards.plain > li { gap: 0; }
+
+/* ── how I build ────────────────────────────────────────────────────────── */
+.feature { display: grid; grid-template-columns: 1.55fr 1fr; gap: 52px; align-items: start; }
+.feature-text p { color: var(--ink-soft); }
+.feature-text h2 + p { margin-top: 0; }
+
+.chips { margin: 22px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li {
+    padding: 5px 12px; border-radius: 999px;
+    background: var(--bg-sink); border: 1px solid var(--line);
+    font-size: 13px; color: var(--ink-soft);
+}
+
+/* ── contact ────────────────────────────────────────────────────────────── */
+.links { margin: 30px 0 0; padding: 0; list-style: none; max-width: 560px; }
+.links li {
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+    padding: 14px 0; border-bottom: 1px solid var(--line);
+}
+.links li:first-child { border-top: 1px solid var(--line); }
+.links a { font-size: 16px; }
+.links span { margin-left: auto; font-size: 13px; color: var(--ink-faint); }
+
+/* ── footer ─────────────────────────────────────────────────────────────── */
+footer { padding: 44px 0 60px; border-top: 1px solid var(--line); color: var(--ink-faint); font-size: 14px; }
+footer .wrap { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+footer nav { margin-left: auto; display: flex; gap: 20px; }
+footer a { color: var(--ink-soft); }
+
+@media (max-width: 760px) {
+    .feature, .cards.plain { grid-template-columns: 1fr; }
+    .feature { gap: 34px; }
+    section { padding: 56px 0; }
+    .hero { padding: 62px 0 54px; }
+    header nav { display: none; }
+    .cards > li { padding: 20px; gap: 16px; }
+    .icon { width: 50px; height: 50px; border-radius: 12px; }
+    .links span { margin-left: 0; width: 100%; }
+}
