@@ -14,7 +14,7 @@ requests, so it renders straight off a disk. Push to `main` and GitHub Pages pub
 - **No external requests.** No CDN, no web fonts, no analytics, no embeds. If something needs a
   network call to render, it does not belong here.
 - **Colour comes from the icons.** The page itself is near-monochrome with one muted blue for
-  links. Deskestra is brass and Deskick is pitch green — an umbrella page that picks its own loud
+  links. Deskestra is brass and Kick Kick is pitch green — an umbrella page that picks its own loud
   colour starts competing with the things underneath it.
 - **`<meta name="darkreader-lock">` stays.** Without it the Dark Reader extension repaints the
   page and the light design never gets seen.
@@ -24,4 +24,4 @@ requests, so it renders straight off a disk. Push to `main` and GitHub Pages pub
 ## Product sites
 
 - Deskestra — <https://safabulat.github.io/deskestra-site/>
-- Deskick — <https://safabulat.github.io/deskick-site/>
+- Kick Kick — <https://safabulat.github.io/kickkick-site/>
