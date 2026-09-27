@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.safabulat.kirisalim",
+      "sha256_cert_fingerprints": ["8F:43:78:74:AA:73:51:D7:17:E8:F7:C0:C7:3A:54:AB:8E:62:FB:C9:DC:43:76:82:4A:3C:B5:FD:53:6A:0A:00"]
+    }
+  }
+]

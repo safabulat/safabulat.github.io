@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["N8VQKCKQNB.com.safabulat.kirisalim"],
+        "components": [{ "/": "/kirisalim-site/j/*", "comment": "Kırışalım eve davet linki" }]
+      }
+    ]
+  }
+}
