@@ -2,8 +2,19 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["N8VQKCKQNB.com.safabulat.kirisalim"],
-        "components": [{ "/": "/kirisalim-site/j/*", "comment": "Kırışalım eve davet linki" }]
+        "appIDs": [
+          "N8VQKCKQNB.com.safabulat.kirisalim"
+        ],
+        "components": [
+          {
+            "/": "/kirisalim-site/j/*",
+            "comment": "Kırışalım eve davet linki"
+          },
+          {
+            "/": "/kirisalim-site/app/r/*",
+            "comment": "Kırışalım şifre sıfırlama linki"
+          }
+        ]
       }
     ]
   }
