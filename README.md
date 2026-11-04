@@ -1,6 +1,6 @@
 # safabulat.github.io
 
-The hub page that sits above every product site — <https://safabulat.github.io/>
+The hub page that sits above every product site — <https://bulatapps.com/>
 
 One HTML file, one stylesheet, three app icons. No framework, no build step, no external
 requests, so it renders straight off a disk. Push to `main` and GitHub Pages publishes it.
@@ -23,5 +23,5 @@ requests, so it renders straight off a disk. Push to `main` and GitHub Pages pub
 
 ## Product sites
 
-- Deskestra — <https://safabulat.github.io/deskestra-site/>
-- Kick Kick — <https://safabulat.github.io/kickkick-site/>
+- Deskestra — <https://deskestra.bulatapps.com/>
+- Kick Kick — <https://kickkick.bulatapps.com/>
