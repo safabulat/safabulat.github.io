@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://crossleaf.bulatapps.com/sitemap.xml
+Sitemap: https://bulatapps.com/sitemap.xml
