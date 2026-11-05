@@ -2,12 +2,15 @@
 
 The hub page that sits above every product site — <https://bulatapps.com/>
 
-One HTML file, one stylesheet, three app icons. No framework, no build step, no external
+One HTML file, one stylesheet, the app icons and a few built pictures. No framework, no build step, no external
 requests, so it renders straight off a disk. Push to `main` and GitHub Pages publishes it.
 
     index.html    the whole page
     style.css     dark first, light supported; both are real designs
-    img/          app icons, copied from each product's own site repo
+    img/          app icons (copies), splash-*.jpg / hero.jpg / og.png (built), logo.svg
+    favicon.svg   the bulatapps tab icon; img/touch-icon.png is its 180px render
+    tools/splash.py  rebuilds the product splashes, the hero and the share card from the
+                  product repos' screenshots (headless Chrome, supersampled 3×)
 
 ## House rules
 

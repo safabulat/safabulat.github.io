@@ -187,3 +187,24 @@ footer a { color: var(--ink-soft); }
     font-size: 13.5px;
     color: var(--ink-faint);
 }
+
+/* ── product rows ───────────────────────────────────────────────────────── */
+/* The three apps with their own colour get a picture each, built by tools/splash.py: the app in a
+   device body on its own ground. Picture and text swap sides row by row so the page reads as a
+   line-up rather than a list. The desk toys stay as icon cards — small and clean is their register. */
+.hero-art {
+    display: block; width: 100%; height: auto; margin: 54px auto 0;
+    border-radius: 20px; border: 1px solid var(--line);
+}
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.row.flip .splash { order: 2; }
+.splash {
+    display: block; width: 100%; height: auto;
+    border-radius: 20px; border: 1px solid var(--line);
+}
+.row-text > p:not(.eyebrow):not(.tag) { color: var(--ink-soft); }
+@media (max-width: 860px) {
+    .row { grid-template-columns: 1fr; gap: 30px; }
+    .row.flip .splash { order: 0; }
+    .hero-art { margin-top: 38px; border-radius: 14px; }
+}

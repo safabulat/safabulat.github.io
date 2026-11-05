@@ -1,0 +1,7 @@
+<!-- bulatapps logo: the b's stem breaks out of an app tile; the bowl holds a smaller one. Chosen 2026-11-05 (D2, no pixels). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="g" gradientUnits="userSpaceOnUse" x1="10" y1="85" x2="90" y2="15">
+<stop offset="0" stop-color="#2a5bd7"/><stop offset=".5" stop-color="#3fd4e0"/><stop offset="1" stop-color="#c79cf0"/></linearGradient><mask id="m"><rect width="100" height="100" fill="#fff"/><rect x="26" y="14" width="20" height="16" fill="#000"/></mask></defs>
+<rect x="9" y="22" width="80" height="68" rx="20" fill="none" stroke="url(#g)" stroke-width="8" mask="url(#m)"/>
+<path d="M36 6 V63" stroke="url(#g)" stroke-width="8" stroke-linecap="round"/>
+<circle cx="53" cy="61" r="17" fill="none" stroke="url(#g)" stroke-width="8"/>
+<rect x="47" y="55" width="12" height="12" rx="3" fill="#3fd4e0"/></svg>
