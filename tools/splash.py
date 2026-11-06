@@ -171,12 +171,45 @@ render("splash-kirisalim", W, H, f"""<body class="ks">{ks_ground()}
 
 
 # ── the family shot: three products' grounds as one strip, devices across the seams ─────────────
-def family(w, h):
-    # Three grounds side by side, each a third, so the colour of the picture *is* the line-up.
+# The bulatapps logo's gradient — the studio's own colours, as opposed to any one app's.
+BRAND = {"navy": "#2a5bd7", "cyan": "#3fd4e0", "lilac": "#c79cf0"}
+
+
+def tiles(w, h):
+    # Faint outlined app tiles — the logo's container shape — scattered as texture.
+    spots = [(.07, .70, 90, -10), (.30, .08, 60, 8), (.52, .80, 74, -6), (.70, .06, 96, 12), (.90, .66, 64, -14),
+             (.18, .34, 44, 18), (.84, .30, 40, -4)]
+    return "".join(f'<i style="position:absolute;left:{x*w:.0f}px;top:{y*h:.0f}px;width:{s}px;height:{s}px;'
+                   f'border:2px solid rgba(255,255,255,.07);border-radius:28%;transform:rotate({r}deg)"></i>'
+                   for x, y, s, r in spots)
+
+
+def family(w, h, ground="brand"):
+    # "bands": three grounds side by side, each a third, so the colour of the picture *is* the line-up.
+    # "brand": one dark ground lit by the logo's three colours; the apps' own colours stay inside their
+    #          screens. "glow": the same dark ground, a muted glow of each app's hue behind its device.
     third = w / 3
+    if ground == "brand":
+        grounds = (f'<div style="position:absolute;inset:0;background:'
+                   f'radial-gradient(60% 80% at 12% 85%, {BRAND["navy"]}55, transparent 70%),'
+                   f'radial-gradient(45% 60% at 50% 20%, {BRAND["cyan"]}30, transparent 70%),'
+                   f'radial-gradient(50% 70% at 92% 40%, {BRAND["lilac"]}40, transparent 70%),'
+                   f'linear-gradient(160deg,#0d1122,#090b14 60%,#0c0a16)"></div>' + tiles(w, h))
+        return _family(w, h, grounds)
+    if ground == "glow":
+        grounds = (f'<div style="position:absolute;inset:0;background:'
+                   f'radial-gradient(38% 60% at 20% 72%, #e14cc433, transparent 70%),'
+                   f'radial-gradient(38% 60% at 50% 45%, #4a7fd840, transparent 70%),'
+                   f'radial-gradient(34% 60% at 86% 45%, #1C9A8F44, transparent 70%),'
+                   f'linear-gradient(160deg,#101219,#0a0b10)"></div>' + tiles(w, h))
+        return _family(w, h, grounds)
     grounds = (f'<div class="mb" style="position:absolute;left:0;top:0;width:{third+1:.0f}px;bottom:0;overflow:hidden">{mb_ground(.8)}</div>'
                f'<div class="cl" style="position:absolute;left:{third:.0f}px;top:0;width:{third+1:.0f}px;bottom:0;overflow:hidden">{cl_ground(.8)}</div>'
                f'<div class="ks" style="position:absolute;left:{2*third:.0f}px;top:0;right:0;bottom:0;overflow:hidden">{ks_ground(.8)}</div>')
+    return _family(w, h, grounds)
+
+
+def _family(w, h, grounds):
     k = h / 540
     devices = f"""
 <div class="body ipad" style="position:absolute;width:{430*k:.0f}px;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2">
@@ -191,5 +224,10 @@ def family(w, h):
     return f"<body style='background:#0f0f10'>{grounds}{devices}{toys}</body>"
 
 
+import sys
+if "--variants" in sys.argv:
+    for g in ("brand", "glow"):
+        render(f"_hero-{g}", 1080, 540, family(1080, 540, g))
+    raise SystemExit
 render("hero", 1080, 540, family(1080, 540))
 render("og", 1200, 630, family(1200, 630), scale=1, fmt="png")
