@@ -21,8 +21,23 @@
     --page:       1080px;
 }
 
+/* Light palette: follows the system unless the visitor picked one with the header toggle
+   (data-theme on <html>, set before first paint by the inline script in <head>). */
+:root[data-theme="light"] {
+    --accent:     #1f6ac4;
+    --bg:         #f8f8f7;
+    --bg-raise:   #ffffff;
+    --bg-sink:    #eeeeec;
+    --line:       #e0e0dd;
+    --ink:        #131313;
+    --ink-soft:   #575653;
+    --live:       #1f8a4c;
+    --ink-faint:  #8b8985;
+    --wip:        #9a7317;
+    --hold:       #8b8985;
+}
 @media (prefers-color-scheme: light) {
-    :root {
+    :root:not([data-theme="dark"]) {
         --accent:     #1f6ac4;
         --bg:         #f8f8f7;
         --bg-raise:   #ffffff;
@@ -68,6 +83,22 @@ header .wrap { display: flex; align-items: center; gap: 12px; }
 header nav { margin-left: auto; display: flex; gap: 22px; font-size: 14px; }
 header nav a { color: var(--ink-soft); }
 header nav a:hover { color: var(--ink); text-decoration: none; }
+/* Language + theme: their own group after a hairline, and still shown on phones where the nav hides. */
+.tools { display: flex; align-items: center; gap: 14px; margin-left: 22px; padding-left: 22px;
+         border-left: 1px solid var(--line); font-size: 14px; }
+.tools a { color: var(--ink-soft); }
+.tools a:hover { color: var(--ink); text-decoration: none; }
+.theme-btn { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 1px solid var(--line);
+             border-radius: 8px; background: none; color: var(--ink-soft); cursor: pointer; }
+.theme-btn:hover { color: var(--ink); }
+.theme-btn svg { width: 16px; height: 16px; }
+.theme-btn .moon { display: none; }
+:root[data-theme="light"] .theme-btn .sun { display: none; }
+:root[data-theme="light"] .theme-btn .moon { display: block; }
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .theme-btn .sun { display: none; }
+    :root:not([data-theme="dark"]) .theme-btn .moon { display: block; }
+}
 
 /* ── hero ───────────────────────────────────────────────────────────────── */
 .hero { padding: 96px 0 84px; text-align: center; }
@@ -165,6 +196,7 @@ footer a { color: var(--ink-soft); }
     section { padding: 56px 0; }
     .hero { padding: 62px 0 54px; }
     header nav { display: none; }
+    .tools { margin-left: auto; padding-left: 0; border-left: 0; }
     .cards > li { padding: 20px; gap: 16px; }
     .icon { width: 50px; height: 50px; border-radius: 12px; }
     .links span { margin-left: 0; width: 100%; }
